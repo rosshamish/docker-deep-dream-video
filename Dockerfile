@@ -40,6 +40,8 @@ ADD caffe-master /caffe-master
 
 RUN cd /caffe-master && make && make distribute
 
+ADD models /models
+
 # Set caffe to be in the python path
 ENV PYTHONPATH=/caffe-master/distribute/python
 ENV PATH $PATH:/opt/caffe/.build_release/tools

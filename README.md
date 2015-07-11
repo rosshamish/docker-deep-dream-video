@@ -18,7 +18,11 @@ Hack away! Files inside the path `./some/path/DeepDreamVideo` will be available 
 
 -----------
 
-Environment includes Caffe GPU support  
+Caffe models are in the container at `/models/`. Do `$ ls /models` to see what's available. 
+
+To use your own Caffe models, mount your host machine's models directory as a volume `$ docker run -v ./some/path/DeepDreamVideo:/src -v ./some/path/models:/models -it rosshamish/docker-deep-dream-video:latest bash`. Your models will be accessible in the container at `/models`.
+
+Environment includes Caffe GPU support:  
 Makefile.config:
 ```
 # CPU-only switch (uncomment to build without GPU support).
