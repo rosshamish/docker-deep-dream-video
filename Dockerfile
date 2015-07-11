@@ -64,7 +64,8 @@ ENV PATH=$PATH:/usr/local/cuda-6.5/bin
 # Install Caffe
 ADD caffe-master /caffe-master
 
-RUN cd /caffe-master && make && make distribute
+RUN cd /caffe-master && make all -j8
+RUN cd /caffe-master && make distribute
 
 ADD models /models
 
