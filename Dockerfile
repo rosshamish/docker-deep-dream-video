@@ -1,17 +1,8 @@
+# Borrowed/stolen originally from https://github.com/ryankennedyio/deep-dream-generator
+
 FROM ipython/ipython:3.x
 
-MAINTAINER Ryan Kennedy <ryankennedys30@gmail.com>
-
-VOLUME /notebooks
-WORKDIR /notebooks
-
-EXPOSE 8888
-
-# You can mount your own SSL certs as necessary here
-ENV PEM_FILE /key.pem
-# $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
-ENV PASSWORD Dont make this your default
-ENV USE_HTTP 0
+MAINTAINER Ross Anderson <ross.anderson87@gmail.com>
 
 RUN apt-get update
 
@@ -37,6 +28,13 @@ RUN apt-get install -y libjpeg62
 #Install atlas
 RUN apt-get install -y libatlas-base-dev
 
+# Install DeepDreamVideo deps
+RUN sudo apt-get install -y python-software-properties software-properties-common
+RUN sudo add-apt-repository ppa:mc3man/trusty-media
+RUN sudo apt-get update
+RUN sudo apt-get -y dist-upgrade
+RUN sudo apt-get install -y ffmpeg
+
 # Install Caffe
 ADD caffe-master /caffe-master
 
@@ -51,12 +49,3 @@ ADD caffe-ld-so.conf /etc/ld.so.conf.d/
 
 # Run ldconfig again (not sure if needed)
 RUN ldconfig
-
-# Copy the notebook into the container
-ADD dream.ipynb /notebooks/
-
-ADD notebook.sh /
-
-RUN chmod u+x /notebook.sh
-
-CMD ["/notebook.sh"]

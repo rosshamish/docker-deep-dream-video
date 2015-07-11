@@ -1,11 +1,27 @@
-# deep-dream-generator
+# docker-deep-dream-video
 
-####\#deepdream in a docker environment, to save you 8 hours of setup headaches.
+####[\#DeepDreamVideo-ready](https://github.com/graphific/deepdreamvideo) [docker](https://www.docker.com/) environment, to save you 8 hours of setup headaches. 
 
-To set up the container, you can either build it yourself from here - or just fetch it from Dockerhub.
+Get [docker](https://www.docker.com/)
 
-Once you have a container ready, run it with
+Pull (download) the image from Dockerhub `$ docker pull rosshamish/deep-dream-generator-video`.
 
-	docker run -d -p 443:8888 -e "PASSWORD=password" -v /path/to/this/repository:/src ryankennedyio/deepdream
+*parameter: ./some/path/DeepDreamVideo -- path to download DeepDreamVideo source code into*  
+Clone [graphific/DeepDreamVideo](https://github.com/graphific/DeepDreamVideo) `$ git clone https://github.com/graphific/DeepDreamVideo ./some/path/DeepDreamVideo`
 
-Then head to https://{dockerIP}/, enter 'password' and start playing. 
+*parameter: ./some/path/DeepDreamVideo -- path that DeepDreamVideo source code is in*  
+Run a container and start a shell in it `$ docker run -v ./some/path/DeepDreamVideo:/src -it rosshamish/docker-deep-dream-video:latest bash`
+
+Hack away! Files inside the path `./some/path/DeepDreamVideo` will be available inside the container at `/src`, and changes will be visible without restarting the container.
+
+`$              `
+
+-----------
+
+Environment includes Caffe GPU support  
+Makefile.config:
+```
+# CPU-only switch (uncomment to build without GPU support).
+# CPU_ONLY := 1CPU_ONLY = 1)
+```
+
