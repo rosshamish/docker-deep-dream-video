@@ -1,6 +1,8 @@
 # docker-deep-dream-video
 
-####[\#DeepDreamVideo-ready](https://github.com/graphific/deepdreamvideo) [docker](https://www.docker.com/) environment, to save you 8 hours of setup headaches. 
+#####[DeepDreamVideo](https://github.com/graphific/deepdreamvideo)-ready [docker](https://www.docker.com/) environment, to save you 8 hours of setup headaches. 
+
+---
 
 Get [docker](https://www.docker.com/)
 
