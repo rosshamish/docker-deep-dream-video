@@ -8,7 +8,7 @@
 
 Get [docker](https://www.docker.com/)
 
-Pull (download) the image from Dockerhub `$ docker pull rosshamish/deep-dream-generator-video`.
+Pull (download) the image from Dockerhub `$ docker pull rosshamish/docker-deep-dream-video`.
 
 *parameter: ./some/path/DeepDreamVideo -- path to download DeepDreamVideo source code into*  
 Clone [graphific/DeepDreamVideo](https://github.com/graphific/DeepDreamVideo) 
