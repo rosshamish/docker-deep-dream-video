@@ -22,22 +22,26 @@ Run a container and start a shell in it
 
 Hack away! Files inside the path `./some/path/DeepDreamVideo` will be available inside the container at `/src`, and changes will be visible without restarting the container.
 
-`$              `
+Note: Caffe models are available in the container at `/models`.
+
+`#`
 
 -----------
 
-To use your GPU, do: (from [tleyden](https://tleyden.github.io/blog/2014/10/25/docker-on-aws-gpu-ubuntu-14-dot-04-slash-cuda-6-dot-5/))
+Notes:
+
+- To use your GPU, do: (from [tleyden](https://tleyden.github.io/blog/2014/10/25/docker-on-aws-gpu-ubuntu-14-dot-04-slash-cuda-6-dot-5/))
 
 ```
 $ DOCKER_NVIDIA_DEVICES="--device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm"
 $ sudo docker run -ti $DOCKER_NVIDIA_DEVICES rosshamish/docker-deep-dream-video bash
 ```
 
-Caffe models are in the container at `/models/`. Do `$ ls /models` to see what's available. 
+- Caffe models are in the container at `/models/`. Do `$ ls /models` to see what's available. 
 
-To use your own Caffe models, mount your host machine's models directory as a volume `$ docker run -v ./some/path/DeepDreamVideo:/src -v ./some/path/models:/models -it rosshamish/docker-deep-dream-video:latest bash`. Your models will be accessible in the container at `/models`.
+- To use your own Caffe models, mount your host machine's models directory as a volume `$ docker run -v ./some/path/DeepDreamVideo:/src -v ./some/path/models:/models -it rosshamish/docker-deep-dream-video:latest bash`. Your models will be accessible in the container at `/models`.
 
-Environment includes Caffe GPU support:  
+- Environment includes Caffe GPU support:  
 Makefile.config:
 ```
 # CPU-only switch (uncomment to build without GPU support).

@@ -78,3 +78,6 @@ ADD caffe-ld-so.conf /etc/ld.so.conf.d/
 
 # Run ldconfig again (not sure if needed)
 RUN ldconfig
+
+# Set CUDA lib path to be x64
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64
