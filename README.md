@@ -1,6 +1,8 @@
 # docker-deep-dream-video
 
-**NOTE: Not finished yet, this will not work**
+> **a work in progress** -- this is not functional
+
+> It will eventually be used to power [rosshamish/deepdreamers](https://github.com/rosshamish/deepdreamers), a highly experimental group deepdream experience
 
 [DeepDreamVideo](https://github.com/graphific/deepdreamvideo)-ready [docker](https://www.docker.com/) environment, to save you 8 hours of setup headaches. 
 
